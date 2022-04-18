@@ -21,7 +21,10 @@
         %th{scope: 'col'} Habitat Type
         %th{scope: 'col'} Tolerance
         %th{scope: 'col'} Invasive?
+        %th{scope: 'col'} Plot Location
       %tbody
         %td= @plant.habitat_type
         %td= @plant.tolerance
         %td{class: ('danger' if @plant.invasive)}= @plant.invasive? ? 'Yes' : 'No'
+        %td= @plant.plots
+
