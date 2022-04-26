@@ -5,7 +5,7 @@ class PlantsController < ApplicationController
   before_action :admin_required, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @plants = Plant.all.sort_by {|plant| plant.common_name.downcase}
+    @plants = Plant.all.includes(photo_attachments: :blob).sort_by {|plant| plant.common_name.downcase}
   end
 
   def show; end
