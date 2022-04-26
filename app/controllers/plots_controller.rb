@@ -5,7 +5,7 @@ class PlotsController < ApplicationController
   before_action :admin_required, except: [:index, :show, :map, :download_qr]
 
   def index
-    @plots = Plot.order(:plot_id)
+    @plots = Plot.order(:plot_id).includes(photo_attachments: :blob)
   end
 
   def map
