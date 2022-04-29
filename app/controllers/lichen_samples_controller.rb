@@ -5,7 +5,7 @@ class LichenSamplesController < ApplicationController
   before_action :set_lichen_sample, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lichen_samples = LichenSample.order(collected_on: :desc).page(params[:page])
+    @lichen_samples = LichenSample.order(collected_on: :desc).page(params[:page]).includes(:plot)
   end
 
   def show; end

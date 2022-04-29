@@ -6,7 +6,7 @@ class BiodiversityReportsController < ApplicationController
   before_action :set_biodiversity_report, only: [:show, :edit, :update, :destroy]
 
   def index
-    @biodiversity_reports = BiodiversityReport.order(measured_on: :desc).page(params[:page])
+    @biodiversity_reports = BiodiversityReport.order(measured_on: :desc).page(params[:page]).includes(:plot)
   end
 
   def show
